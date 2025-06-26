@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.stream.Collectors;
+
+
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -69,6 +73,25 @@ public class Main {
         //createPanel  Ends
 
         //ReadUser panel starts//
+        JButton usrDetails = new JButton("User details");
+        readPanel.add(usrDetails);
+        usrDetails.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                List<Integer> userIds = DAO.showUsers();
+                if (userIds.isEmpty()) {
+                    JOptionPane.showMessageDialog(readPanel,
+                            "No users in database.",
+                            "User Not Found",
+                            JOptionPane.WARNING_MESSAGE);
+                } else {
+                    String ids = userIds.stream()
+                            .map(String::valueOf)
+                            .collect(Collectors.joining(", "));
+                    JOptionPane.showMessageDialog(readPanel, "User IDs: " + ids);
+                }
+            }
+        });
         JLabel label3 = new JLabel("Id:");
         readPanel.add(label3);
         JTextField id = new JTextField();

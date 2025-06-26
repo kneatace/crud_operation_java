@@ -1,4 +1,6 @@
 import java.sql.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class DAO {
     public static boolean insertUser(String name, String email, String password) {
@@ -77,8 +79,25 @@ public class DAO {
             return false;
         }
     }
+    public static List<Integer> showUsers() {
+        List<Integer> userIds = new ArrayList<>();
+        try (Connection conn = DataBaseConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT id FROM info")) {
 
-}
+            while (rs.next()) {
+                userIds.add(rs.getInt("id"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userIds;
+    }
+    }
+
+
 
         // You can add other CRUD methods here
         // public static boolean updateUser(...)
