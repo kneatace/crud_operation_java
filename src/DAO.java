@@ -95,18 +95,35 @@ public class DAO {
 
         return userIds;
     }
+    public static List<User> filterUsersByName(String keyword) {
+        List<User> users = new ArrayList<>();
+
+        try (Connection conn = DataBaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "SELECT id, name, email, password FROM info WHERE name LIKE ?")) {
+
+            stmt.setString(1, "%" + keyword + "%");
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+
+                users.add(new User(id, name, email, password));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return users;
     }
 
+}
 
 
-        // You can add other CRUD methods here
-        // public static boolean updateUser(...)
-        // public static boolean deleteUser(...)
-        // public static User getUserById(...)
 
 
-    // You can add other CRUD methods here
-    // public static boolean updateUser(...)
-    // public static boolean deleteUser(...)
-    // public static User getUserById(...)
 

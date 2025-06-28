@@ -73,8 +73,10 @@ public class Main {
         //createPanel  Ends
 
         //ReadUser panel starts//
+        readPanel.setLayout(new BoxLayout(readPanel, BoxLayout.Y_AXIS));
         JButton usrDetails = new JButton("User details");
         readPanel.add(usrDetails);
+
         usrDetails.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -92,12 +94,46 @@ public class Main {
                 }
             }
         });
+
+
+        JLabel searchLabel = new JLabel("Search Name:");
+        readPanel.add(searchLabel);
+        JTextField nameField = new JTextField();
+        readPanel.add(nameField);
+        nameField.setMaximumSize(new Dimension(300, 30));
+
+        JButton filterButton = new JButton("Search by name");// keep this
+        readPanel.add(filterButton);
+
+
+        filterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String keyword = nameField.getText().trim();
+                List<User> filteredUsers = DAO.filterUsersByName(keyword);
+
+                if (filteredUsers.isEmpty()) {
+                    JOptionPane.showMessageDialog(readPanel,
+                            "No users found with name: " + keyword,
+                            "No Match",
+                            JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    StringBuilder result = new StringBuilder("Matching Users:\n");
+                    for (User user : filteredUsers) {
+                        result.append(user.toString()).append("\n");
+                    }
+
+                    JOptionPane.showMessageDialog(readPanel, result.toString());
+                }
+            }
+        });
+
         JLabel label3 = new JLabel("Id:");
         readPanel.add(label3);
         JTextField id = new JTextField();
         id.setMaximumSize(new Dimension(300, 30));
         readPanel.add(id);
-        readPanel.setLayout(new BoxLayout(readPanel, BoxLayout.Y_AXIS));
+
         JButton button1 = new JButton("Show Details");
         readPanel.add(button1);
         button1.addActionListener(new ActionListener() {
@@ -178,8 +214,8 @@ public class Main {
         editPanel.setLayout(new BoxLayout(editPanel, BoxLayout.Y_AXIS));
 
         JLabel nameLabel = new JLabel("New Name:");
-        JTextField nameField = new JTextField();
-        nameField.setMaximumSize(new Dimension(300, 30));
+        JTextField nameField1 = new JTextField();
+        nameField1.setMaximumSize(new Dimension(300, 30));
 
         JLabel emailLabel = new JLabel("New Email:");
         JTextField emailField = new JTextField();
@@ -190,7 +226,7 @@ public class Main {
         passField.setMaximumSize(new Dimension(300, 30));
 
         editPanel.add(nameLabel);
-        editPanel.add(nameField);
+        editPanel.add(nameField1);
         editPanel.add(emailLabel);
         editPanel.add(emailField);
         editPanel.add(passLabel);
