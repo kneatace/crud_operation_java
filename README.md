@@ -33,7 +33,7 @@ MySQL (MariaDB via XAMPP)
 
 JDBC
 
-Setup Instructions:
+-Setup Instructions:
 
 1.Clone the repo
 
@@ -41,9 +41,11 @@ git clone https://github.com/yourusername/crud_operation_java.git
 cd crud_operation_java
 2.Setup the MySQL database
 
-Make sure MySQL (from XAMPP) is running, then:
+-Make sure MySQL (from XAMPP) is running, then:
 
-CREATE DATABASE userdb;
+code:
+
+CREATE DATABASE crud;
 
 USE crud;
 
