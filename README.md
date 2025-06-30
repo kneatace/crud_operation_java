@@ -1,6 +1,9 @@
-A simple Java desktop application to perform CRUD operations (Create, Read, Update, Delete) on users stored in a MySQL database. Built using Java Swing for GUI, JDBC for database access, and MySQL (via XAMPP) as the backend.
+A simple Java desktop application to perform CRUD operations (Create, Read, Update, Delete) on users stored in a MySQL database. 
+(Used tabbed pane in this one)
+Built using Java Swing for GUI, JDBC for database access, and MySQL (via XAMPP) as the backend.
 
--Features
+-Features:
+
   -Create a new user (name, email, password)
 
   -View user details by ID
@@ -9,7 +12,8 @@ A simple Java desktop application to perform CRUD operations (Create, Read, Upda
 
   -Delete a user by ID
 
-🧱 Project Structure
+-Project Structure:
+
 pgsql
 Copy
 Edit
@@ -27,22 +31,19 @@ MySQL (MariaDB via XAMPP)
 
 JDBC
 
-🔧 Setup Instructions
-1. ✅ Clone the repo
-bash
-Copy
-Edit
+Setup Instructions:
+
+1.Clone the repo
+
 git clone https://github.com/yourusername/crud_operation_java.git
 cd crud_operation_java
-2. ⚙️ Setup the MySQL database
+2.Setup the MySQL database
+
 Make sure MySQL (from XAMPP) is running, then:
 
-sql
-Copy
-Edit
 CREATE DATABASE userdb;
 
-USE userdb;
+USE crud;
 
 CREATE TABLE info (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -50,16 +51,17 @@ CREATE TABLE info (
   email VARCHAR(100),
   password VARCHAR(100)
 );
-3. 🔌 Update DB credentials
+
+3.Update DB credentials
+
 In DataBaseConnection.java, set your database name, username, and password:
 
-java
-Copy
-Edit
 String url = "jdbc:mysql://localhost:3306/userdb";
 String user = "root";
 String password = ""; // or your MySQL password
-4. ▶️ Run the application
+
+4.Run the application
+
 Open in IntelliJ IDEA
 
 Right-click Main.java → Run
