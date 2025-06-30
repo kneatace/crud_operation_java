@@ -1,5 +1,7 @@
 A simple Java desktop application to perform CRUD operations (Create, Read, Update, Delete) on users stored in a MySQL database. 
+
 (Used tabbed pane in this one)
+
 Built using Java Swing for GUI, JDBC for database access, and MySQL (via XAMPP) as the backend.
 
 -Features:
