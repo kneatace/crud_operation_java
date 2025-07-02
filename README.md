@@ -17,26 +17,32 @@ Built using Java Swing for GUI, JDBC for database access, and MySQL (via XAMPP) 
 -Project Structure:
 
 ├── src/
-│   ├── DAO.java               # Database access methods
-│   ├── User.java              # POJO model class for user entity
-│   ├── DataBaseConnection.java # Utility to establish DB connection
-│   └── Main.java              # GUI logic using Java Swing
-🛠️ Technologies Used
-Java (JDK 8 or later)
+│   
+└──├── DAO.java               # Database access methods
+   │   
+   ├── User.java              # POJO model class for user entity
+   │   
+   ├── DataBaseConnection.java # Utility to establish DB connection
+   │   
+   └── Main.java              # GUI logic using Java Swing
 
-Swing (Java GUI toolkit)
+-Technologies Used
 
-MySQL (MariaDB via XAMPP)
+  ->Java (JDK 8 or later)
 
-JDBC
+  ->Swing (Java GUI toolkit)
+
+  ->MySQL (MariaDB via XAMPP)
+
+  ->JDBC
 
 -Setup Instructions:
 
 1.Clone the repo
 
-git clone https://github.com/yourusername/crud_operation_java.git
+    git clone https://github.com/yourusername/crud_operation_java.git
 
-cd crud_operation_java
+    cd crud_operation_java
 
 2.Setup the MySQL database
 
@@ -44,11 +50,11 @@ cd crud_operation_java
 
 code:
 
-CREATE DATABASE crud;
+    CREATE DATABASE crud;
 
-USE crud;
+    USE crud;
 
-  CREATE TABLE info (
+    CREATE TABLE info (
     
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
@@ -60,11 +66,11 @@ USE crud;
 
 In DataBaseConnection.java, set your database name, username, and password:
 
-String url = "jdbc:mysql://localhost:3306/userdb";
+    String url = "jdbc:mysql://localhost:3306/userdb";
 
-String user = "root";
+    String user = "root";
 
-String password = ""; // or your MySQL password
+    String password = ""; // or your MySQL password
 
 4.Run the application
 
