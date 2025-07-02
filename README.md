@@ -16,9 +16,6 @@ Built using Java Swing for GUI, JDBC for database access, and MySQL (via XAMPP) 
 
 -Project Structure:
 
-pgsql
-Copy
-Edit
 ├── src/
 │   ├── DAO.java               # Database access methods
 │   ├── User.java              # POJO model class for user entity
@@ -38,7 +35,9 @@ JDBC
 1.Clone the repo
 
 git clone https://github.com/yourusername/crud_operation_java.git
+
 cd crud_operation_java
+
 2.Setup the MySQL database
 
 -Make sure MySQL (from XAMPP) is running, then:
@@ -49,19 +48,22 @@ CREATE DATABASE crud;
 
 USE crud;
 
-CREATE TABLE info (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(100),
-  email VARCHAR(100),
-  password VARCHAR(100)
-);
+  CREATE TABLE info (
+    
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    password VARCHAR(100)
+  );
 
 3.Update DB credentials
 
 In DataBaseConnection.java, set your database name, username, and password:
 
 String url = "jdbc:mysql://localhost:3306/userdb";
+
 String user = "root";
+
 String password = ""; // or your MySQL password
 
 4.Run the application
