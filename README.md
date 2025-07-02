@@ -14,17 +14,6 @@ Built using Java Swing for GUI, JDBC for database access, and MySQL (via XAMPP) 
 
   -Delete a user by ID
 
--Project Structure:
-
-├── src/
-│   
-└──├── DAO.java                      # Database access methods
-   │   
-     ├── User.java                   # POJO model class for user entity
-     │   
-     ├── DataBaseConnection.java     # Utility to establish DB connection
-     │   
-     └── Main.java                   # GUI logic using Java Swing
 
 -Technologies Used
 
